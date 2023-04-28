@@ -1,0 +1,929 @@
+"orgLCAModels": {
+        "Cradle to Cradle": {
+            "rawMaterialUsed": {
+                "name": "Raw Material Used",
+                "emission": {
+                    "name": "Total Material Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Material",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Raw Material Use",
+                        "desc": "Add Material",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "inputName": ["Quantity", "Recycled Content"],
+                        "inputDesc": ["unit", "%"],
+                        "formula": "userInput[0]*(1-0.01*userInput[1])",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userinput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "manfacturingProcesses": {
+                "name": "Manufacturing Processes",
+                "emission": {
+                    "name": "Total Manufacturing Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Manufacturing Process Description",
+                    "subSectionType": "text",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }, {
+                    "mainSection": "Manufacturing Energy",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Energy",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Energy Type",
+                        "desc": "Add Energy Type",
+                        "cliObj": {},
+                        "sector": ["Energy"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Resources",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumables",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Resources Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing", "Equipment"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Product Packaging",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Packaging",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Packaging Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "category": ["Paper and Cardboard", "Plastic and Rubber Products"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Waste",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Manufacturing Waste",
+                    "questions": [{
+                        "name": "Disposable Method",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["“Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "transportation": {
+                "name": "Transportation",
+                "emission": {
+                    "name": "Total Transportation Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Transportation",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Weight Over Distance",
+                        "inputName": ["Transportation Distance", "Product Weight (including packaging)"],
+                        "inputDesc": ["unit", "Tonnes"],
+                        "userInput": [],
+                        "formula": "userInput[0]*userInput[1]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Product Losses",
+                    "subSection": "Amount",
+                    "subSectionType": "text",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }, {
+                    "mainSection": "Installation Waste",
+                    "subSection": "Is there supporting material or consumable needed for installation?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Installation Waste",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Disposable Method",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "usage": {
+                "name": "Usage",
+                "emission": {
+                    "name": "Total Usage Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Does product usage produce emissions?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product reqires maintenance?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product requires repair?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product require replacement?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product require refurbishment?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Product Lifespan",
+                    "subSectionType": "dropdown",
+                    "subSectionOptions": ["Month", "Year"],
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }]
+            },
+            "endOfLife": {
+                "name": "End-of-Life",
+                "emission": {
+                    "name": "Total End-of-Life Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Reused",
+                    "subSectionType": "checkbox",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Disposable Method for Non-Reuasable Content",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Recycle",
+                    "subSectionType": "checkbox",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": true,
+                    "questions": [{
+                        "Name": "Disposable Method for Non-Reuasable Content",
+                        "Desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }]
+            }
+        },
+        "Cradle to Gate": {
+            "rawMaterialUsed": {
+                "name": "Raw Material Used",
+                "emission": {
+                    "name": "Total Material Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Material",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Raw Material Use",
+                        "desc": "Add Material",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "inputName": ["Quantity", "Recycled Content"],
+                        "inputDesc": ["unit", "%"],
+                        "formula": "userInput[0]*(1-0.01*userInput[1])",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userinput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "manfacturingProcesses": {
+                "name": "Manufacturing Processes",
+                "emission": {
+                    "name": "Total Manufacturing Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Manufacturing Process Description",
+                    "subSectionType": "text",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }, {
+                    "mainSection": "Manufacturing Energy",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Energy",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Energy Type",
+                        "desc": "Add Energy Type",
+                        "cliObj": {},
+                        "sector": ["Energy"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Resources",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumables",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Resources Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing", "Equipment"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Product Packaging",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Packaging",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Packaging Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "category": ["Paper and Cardboard", "Plastic and Rubber Products"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Waste",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Manufacturing Waste",
+                    "questions": [{
+                        "name": "Disposable Method",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["“Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            }
+        },
+        "Cradle to Grave": {
+            "rawMaterialUsed": {
+                "name": "Raw Material Used",
+                "emission": {
+                    "name": "Total Material Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Material",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Raw Material Use",
+                        "desc": "Add Material",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "inputName": ["Quantity", "Recycled Content"],
+                        "inputDesc": ["unit", "%"],
+                        "formula": "userInput[0]*(1-0.01*userInput[1])",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userinput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "manfacturingProcesses": {
+                "name": "Manufacturing Processes",
+                "emission": {
+                    "name": "Total Manufacturing Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Manufacturing Process Description",
+                    "subSectionType": "text",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }, {
+                    "mainSection": "Manufacturing Energy",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Energy",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Energy Type",
+                        "desc": "Add Energy Type",
+                        "cliObj": {},
+                        "sector": ["Energy"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Resources",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumables",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Resources Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing", "Equipment"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Product Packaging",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Packaging",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Type",
+                        "desc": "Add Packaging Type",
+                        "cliObj": {},
+                        "sector": ["Materials and Manufacturing"],
+                        "category": ["Paper and Cardboard", "Plastic and Rubber Products"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Manufacturing Waste",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Manufacturing Waste",
+                    "questions": [{
+                        "name": "Disposable Method",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["“Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "transportation": {
+                "name": "Transportation",
+                "emission": {
+                    "name": "Total Transportation Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "",
+                    "subSectionType": "",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Transportation",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Weight Over Distance",
+                        "inputName": ["Transportation Distance", "Product Weight (including packaging)"],
+                        "inputDesc": ["unit", "Tonnes"],
+                        "userInput": [],
+                        "formula": "userInput[0]*userInput[1]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "Product Losses",
+                    "subSection": "Amount",
+                    "subSectionType": "text",
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }, {
+                    "mainSection": "Installation Waste",
+                    "subSection": "Is there supporting material or consumable needed for installation?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Installation Waste",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Disposable Method",
+                        "desc": "Add Disposable Method",
+                        "cliObj": {},
+                        "sector": ["Waste"],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }, {
+                        "name": "Transportation Type",
+                        "desc": "Add Transportation",
+                        "cliObj": {},
+                        "sector": ["Transport"],
+                        "unitType": "Distance",
+                        "inputName": ["Transportation Distance"],
+                        "inputDesc": ["unit"],
+                        "formula": "userInput[0]",
+                        "userInput": [],
+                        "calcValue": ""
+                    }]
+                }]
+            },
+            "usage": {
+                "name": "Usage",
+                "emission": {
+                    "name": "Total Usage Emission",
+                    "value": ""
+                },
+                "template": [{
+                    "mainSection": "",
+                    "subSection": "Does product usage produce emissions?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product reqires maintenance?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product requires repair?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product require replacement?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Does the product require refurbishment?",
+                    "subSectionType": "radio",
+                    "subSectionValue": "",
+                    "isMultiple": true,
+                    "isMultipleDesc": "Add Consumption",
+                    "toCalculate": true,
+                    "questions": [{
+                        "name": "Consumption Type",
+                        "desc": "Add Consumption Type",
+                        "cliObj": {},
+                        "sector": [],
+                        "inputName": ["Quantity"],
+                        "inputDesc": ["unit"],
+                        "userInput": [],
+                        "formula": "userInput[0]",
+                        "calcValue": ""
+                    }]
+                }, {
+                    "mainSection": "",
+                    "subSection": "Product Lifespan",
+                    "subSectionType": "dropdown",
+                    "subSectionOptions": ["Month", "Year"],
+                    "subSectionValue": "",
+                    "isMultiple": false,
+                    "isMultipleDesc": "",
+                    "toCalculate": false
+                }]
+            },
+            "endOfLife": {
+                "name": "End-of-Life",
+                "emission": {
+                    "name": "Total End-of-Life Emission",
+                    "value": ""
+                },
+                "template": []
+            }
+        }
+    }
